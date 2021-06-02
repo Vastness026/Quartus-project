@@ -1,0 +1,49 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+entity q1 is
+port (w : in std_logic_vector (3 downto 0);
+		x : in std_logic_vector (3 downto 0);
+		y : in std_logic_vector (3 downto 0);
+		z : in std_logic_vector (3 downto 0);
+		a : out std_logic_vector (3 downto 0);
+		b : out std_logic_vector (3 downto 0);
+		c : out std_logic_vector (3 downto 0);
+		d : out std_logic_vector (3 downto 0)
+		);
+		
+end q1;
+architecture oo of q1 is
+begin
+process(w,x,y,z)
+begin
+	a <= w;
+	b <= x;
+	c <= y;
+	d <= z;
+	if w=x then 
+		b <= x + '1';
+	end if;
+
+	LP1 : for I in 0 to 7 Loop
+		if I=w then
+			c <= y + '1';
+		end if;
+		if I=x then
+			c <= y + '1';
+		end if;
+	end Loop LP1;
+	
+	LP2 : for I in 0 to 6 Loop
+		if I=w then
+			d <= z + '1';
+		end if;
+		if I=x then
+			d <= z + '1';
+		end if;
+		if I=y then
+			d <= z + '1';
+		end if;
+	end Loop LP2;
+end process;
+end oo;

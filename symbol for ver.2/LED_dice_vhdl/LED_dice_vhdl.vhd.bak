@@ -1,0 +1,26 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity LED_dice_vhdl is
+port(n : in std_logic_vector (2 downto 0)
+		L : out std_logic_vector (0 to 6));
+end LED_dice_vhdl;
+
+architecture oo of LED_dice_vhdl is
+begin
+	case n is
+	when "000" =>
+		L <= "0000000";
+	when "000" =>
+		L <= "0001000";
+	when "000" =>
+		L <= "0100010";
+	when "000" =>
+		L <= "1001001";
+	when "000" =>
+		L <= "1010101";
+	when others =>
+		L <= "0000000";
+	end case;
+
+end oo;

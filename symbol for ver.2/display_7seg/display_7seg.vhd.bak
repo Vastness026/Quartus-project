@@ -1,0 +1,21 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+entity display_7seg is
+port(	DE3 : in std_logic;
+		DE2 : in std_logic;
+		DE1 : in std_logic;
+		w : in std_logic_vector (3 downto 0);
+		x : in std_logic_vector (3 downto 0);
+		y : in std_logic_vector (3 downto 0);
+		z : in std_logic_vector (3 downto 0);
+		output : out std_logic_vector (3 downto 0));
+end display_7seg;
+architecture oo of display_7seg is
+begin
+	output 	<= w when DE3 = '0' and DE2 = '1' and DE1 = '0' else
+				<= x when DE3 = '0' and DE2 = '1' and DE1 = '1' else
+				<= y when DE3 = '1' and DE2 = '0' and DE1 = '0' else
+				<= z when DE3 = '1' and DE2 = '0' and DE1 = '1';
+
+end oo;

@@ -1,0 +1,35 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity cal_AB is
+port( w : in std_logic_vector (3 downto 0);
+		x : in std_logic_vector (3 downto 0);
+		y : in std_logic_vector (3 downto 0);
+		z : in std_logic_vector (3 downto 0);
+		w_2 : in std_logic_vector (3 downto 0);
+		x_2 : in std_logic_vector (3 downto 0);
+		y_2 : in std_logic_vector (3 downto 0);
+		z_2 : in std_logic_vector (3 downto 0);
+		A : out std_logic_vector (2 downto 0);
+		B : out std_logic_vector (2 downto 0));
+end cal_AB;
+
+architecture oo of cal_AB is
+begin
+	process(w,x,y,z,w_2,x_2,y_2,z_2)
+	begin
+		if (switch = '0') then
+			w_out <= w;
+			x_out <= x;
+			y_out <= y;
+			z_out <= z;
+		end if;
+		if (switch = '1') then
+			w_out <= w_2;
+			x_out <= x_2;
+			y_out <= y_2;
+			z_out <= z_2;
+		end if;
+	end process;
+end oo;
